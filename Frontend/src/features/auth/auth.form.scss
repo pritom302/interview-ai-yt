@@ -1,0 +1,272 @@
+// ── Variables (matches home.scss design system) ────────────────────────────
+$bg-page:        #0d1117;
+$bg-card:        #161b22;
+$bg-input:       #1e2535;
+$border-color:   #2a3348;
+$text-primary:   #e6edf3;
+$text-muted:     #7d8590;
+$accent:         #ff2d78;
+$accent-alt:     #ff6b9d;
+$font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// ── Page Shell ───────────────────────────────────────────────────────────────
+.auth-page {
+    min-height: 100vh;
+    width: 100%;
+    background-color: $bg-page;
+    color: $text-primary;
+    font-family: $font-stack;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+}
+
+.auth-shell {
+    width: 100%;
+    max-width: 980px;
+    min-height: 560px;
+    display: flex;
+    background-color: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    @media (max-width: 860px) {
+        flex-direction: column;
+        min-height: unset;
+    }
+}
+
+// ── Branding Panel ───────────────────────────────────────────────────────────
+.auth-brand {
+    flex: 1;
+    padding: 2.75rem 2.5rem;
+    background:
+        radial-gradient(circle at 0% 0%, rgba($accent, 0.16), transparent 55%),
+        linear-gradient(180deg, #131926 0%, #10151f 100%);
+    border-right: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 860px) {
+        border-right: none;
+        border-bottom: 1px solid $border-color;
+        padding: 2rem 1.75rem;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 2.25rem;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            padding: 4px;
+            border-radius: 0.45rem;
+            background: linear-gradient(135deg, $accent, $accent-alt);
+            color: #fff;
+        }
+    }
+
+    h1 {
+        font-size: 1.65rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 0.85rem;
+
+        span {
+            color: $accent;
+        }
+    }
+
+    &__sub {
+        font-size: 0.9rem;
+        color: $text-muted;
+        line-height: 1.6;
+        margin-bottom: 2.25rem;
+        max-width: 380px;
+    }
+
+    &__features {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.35rem;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: $text-primary;
+            margin: 0 0 0.2rem;
+        }
+
+        p {
+            font-size: 0.8rem;
+            color: $text-muted;
+            line-height: 1.5;
+            margin: 0;
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 0.5rem;
+        background: rgba($accent, 0.12);
+        color: $accent;
+        margin-top: 0.1rem;
+    }
+}
+
+// ── Form Panel ───────────────────────────────────────────────────────────────
+.auth-form-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem;
+
+    @media (max-width: 860px) {
+        padding: 2rem 1.75rem 2.5rem;
+    }
+}
+
+.form-container {
+    width: 100%;
+    max-width: 340px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-header {
+    h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.35rem;
+        color: $text-primary;
+    }
+
+    p {
+        font-size: 0.85rem;
+        color: $text-muted;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+
+    label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: $text-primary;
+    }
+
+    input {
+        background-color: $bg-input;
+        border: 1px solid $border-color;
+        outline: none;
+        padding-inline: 1rem;
+        padding-block: 0.7rem;
+        border-radius: 0.6rem;
+        color: $text-primary;
+        font-family: $font-stack;
+        font-size: 0.875rem;
+        transition: border-color 0.2s;
+
+        &::placeholder {
+            color: $text-muted;
+        }
+
+        &:focus {
+            border-color: $accent;
+        }
+    }
+}
+
+.button {
+    font-family: $font-stack;
+}
+
+.primary-button {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, $accent 0%, darken($accent, 10%) 100%);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    margin-top: 0.35rem;
+
+    &:hover:not(:disabled) {
+        opacity: 0.9;
+    }
+
+    &:active:not(:disabled) {
+        transform: scale(0.98);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.form-error {
+    font-size: 0.82rem;
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.85rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.form-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin: 0;
+
+    a {
+        color: $accent;
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
